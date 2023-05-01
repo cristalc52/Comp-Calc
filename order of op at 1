@@ -1,0 +1,73 @@
+
+
+import 'dart:io';
+
+const List<String> operations = ['*','/','+','-'];
+
+void main(List<String> arguments) {
+  print('Enter your values to calculate');
+
+  String? input = stdin.readLineSync();
+  if (input != null) {
+    print('input is >>>> $input');
+
+    List list = input.split(' ');
+    print("list >>>> $list ${list.length}");
+
+    List equation = [];
+    var oper;
+
+    for (var item in list) {
+       //print('item: $item');
+
+      if (operations.contains(item)) {
+        //print('item is an operation');
+        oper = item;
+      } else {
+       // print('item is NOT an operation');
+        equation.add(num.parse(item));
+      }
+
+      if (equation.length == 2) {
+        
+        
+        if (oper == '*') {
+          ///
+          var product = equation[0] * equation[1];
+          print('product $product');
+          equation.clear();
+          equation.add(product);
+        } else if (oper == '/') {
+          ///
+          var quotient = equation[0] / equation[1];
+          print('quotient $quotient');
+          equation.clear();
+          equation.add(quotient);
+        } else if (oper == '+') {
+          ///
+          var sum = equation[0] + equation[1];
+          print('sum $sum');
+          equation.clear();
+          equation.add(sum);
+        } else if (oper == '-') {
+          ///
+          var difference = equation[0] - equation[1];
+          print('difference $difference');
+          equation.clear();
+          equation.add(difference);
+        }
+      }
+    }
+
+    print("result ${equation[0]}");
+  }
+}
+
+int calculate() {
+  return 6*7;
+}
+
+
+String aWord() {
+  return "some word";
+}
